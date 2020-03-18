@@ -6,6 +6,8 @@ import sys
 # a solution that is more efficient than the naive 
 # recursive solution
 def eating_cookies(n, cache=None):
+    # This video (linked to me by Mason Karsevar) was quite helpful to undersetand caching:
+    # https://www.youtube.com/watch?v=vYquumk4nWw
     if cache is None:
         cache = [0] * (n+1)
     if cache[n] != 0:
@@ -18,6 +20,7 @@ def eating_cookies(n, cache=None):
         # Save as separate variable so "n" is preserved
         # for the following if statements.
         k = n-3
+        # Commented-out print statements were for error checking
         #print('Ate three cookies.')
         # See how many ways there are to eat the remaining cookies.
         # This gives us how many ways he can eat the cookies if he
@@ -44,6 +47,7 @@ def eating_cookies(n, cache=None):
         pass
 
     cache[n] = num_ways
+    #print(cache)
     return num_ways
 
 if __name__ == "__main__":
